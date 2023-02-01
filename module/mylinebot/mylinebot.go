@@ -21,10 +21,12 @@ func LineBotTemplate(events []*linebot.Event) {
 				}
 				log.Println("receive message :: ", message.Text)
 
-				if !strings.Contains(message.Text, "@bot") {
+				isGroup := len(event.Source.GroupID) > 0
+				if !strings.Contains(message.Text, "@bot") && isGroup {
 					log.Println("dont container @bot , just return")
 					continue
 				}
+
 				// 將訊息丟給OpenAI
 				openAIresp := requestOpenAI(message.Text)
 
