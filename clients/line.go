@@ -1,11 +1,11 @@
-package env
+package clients
 
 import (
 	"fmt"
 	"log"
+	gpt3 "openai-line-bot/clients/gp3"
 	"os"
 
-	"github.com/PullRequestInc/go-gpt3"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 

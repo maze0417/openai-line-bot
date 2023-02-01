@@ -12,3 +12,4 @@ tmp/
 /match-redis/
 *.exe
 /vendor
+.env

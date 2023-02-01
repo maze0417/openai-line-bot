@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 	"log"
+	"openai-line-bot/clients"
 	"openai-line-bot/controller/mybot"
-	"openai-line-bot/env"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -24,7 +24,7 @@ func init() {
 	rootCmd.AddCommand(serverCmd)
 	err := godotenv.Load(".env")
 	if err != nil {
-		log.Fatalf("Error loading .env file")
+		log.Fatalf("Error loading .clients file")
 
 	}
 }
@@ -32,8 +32,8 @@ func init() {
 func start() {
 	fmt.Println("start function")
 
-	env.LineConn()
-	env.Gpt3Conn()
+	clients.LineConn()
+	clients.Gpt3Conn()
 
 	ginServer := gin.New()
 	ginServer.SetTrustedProxies(nil)
